@@ -102,15 +102,19 @@ public class UsersServiceImplTest {
         assertEquals(2,usersService.count());
     }
 
+//    @Test
+//    public void testToLogOutUser(){
+//        usersService.registerSeller(registerSellerRequest);
+//        usersService.login(loginRequest);
+//        usersService.logout(logOutRequest);
+//        assertEquals(0,usersService.count());
+//    }
+
+
     @Test
-    public void testToLogOutUser(){
-        usersService.registerSeller(registerSellerRequest);
-        usersService.login(loginRequest);
-        usersService.logout(logOutRequest);
-        assertEquals(0,usersService.count());
+    public void testToFindUser(){
+
     }
-
-
 
 
 

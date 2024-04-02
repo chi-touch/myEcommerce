@@ -4,6 +4,8 @@ import africa.semicolon.data.model.User;
 import africa.semicolon.data.repositories.UsersRepository;
 import africa.semicolon.dto.request.*;
 import africa.semicolon.dto.response.*;
+import africa.semicolon.exceptions.InvalidLoginInputException;
+import africa.semicolon.exceptions.UserDoesNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,14 +78,15 @@ public class UsersServiceImpl implements UsersService{
 
     @Override
     public LoginResponse login(LoginRequest loginRequest) {
-        String userName = loginRequest.getUsername();
-        String password = loginRequest.getPassword();
-        User user = usersRepository.findByUsername(userName);
-        if (user!= null && user.getPassword().equals(password)) {}
+        User foundUser = usersRepository.findByUsername(loginRequest.getUsername())
+                .orElseThrow(() -> new UserDoesNotExistException("This user does not exist"));
+        if(foundUser.getPassword().equals(loginRequest.getPassword())){
+            return new LoginResponse();
+        }
 
-
-
-        return null;
+        LoginResponse loginResponse = new LoginResponse();
+        loginResponse.setMessage("login successful");
+        return loginResponse;
     }
 
     @Override
@@ -98,6 +101,11 @@ public class UsersServiceImpl implements UsersService{
 
     @Override
     public LogOutResponse logout(LogOutRequest logoutRequest) {
-        return usersRepository.logout(logoutRequest);
+
+        return null;
+
     }
+
+
+
 }
