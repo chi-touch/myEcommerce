@@ -55,7 +55,7 @@ public class ProductTypeServiceImplTest {
         createProductRequest1.setQuantity(51);
 
         productTypeService.create(createProductRequest1);
-        assertEquals(2, productTypeService.count());
+        assertThat(productTypeService.count(),is(2L));
     }
 
     @Test
