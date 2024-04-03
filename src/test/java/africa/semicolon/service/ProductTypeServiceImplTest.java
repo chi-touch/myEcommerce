@@ -4,7 +4,6 @@ import africa.semicolon.dto.request.CreateProductRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
@@ -75,8 +74,8 @@ public class ProductTypeServiceImplTest {
         createProductRequest1.setQuantity(51);
 
         productTypeService.create(createProductRequest1);
-        //productTypeService.delete(createProductRequest1);
-        assertEquals(2, productTypeService.count());
+        //productTypeService.delete();
+        assertThat(productTypeService.count(),is(1L));
 
     }
 

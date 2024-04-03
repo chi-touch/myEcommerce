@@ -10,6 +10,7 @@ import java.time.LocalDate;
 
 
 public class ProductType {
+
     private String productName;
     private BigDecimal productPrice;
     private LocalDate dateCreated;

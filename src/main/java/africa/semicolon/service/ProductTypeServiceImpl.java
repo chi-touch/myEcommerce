@@ -43,6 +43,11 @@ public class ProductTypeServiceImpl implements ProductTypeService{
     }
 
     @Override
+    public void delete(String productType) {
+
+    }
+
+    @Override
     public void  delete(ProductType productType) {
          productRepository.delete(productType);
     }

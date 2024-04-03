@@ -13,7 +13,7 @@ public interface ProductTypeService {
 
     void deleteAll();
 
-    void delete(ProductType productType);
+    void delete(String productType);
 }
 
 
